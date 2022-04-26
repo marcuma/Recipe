@@ -111,4 +111,12 @@ public class Recipe {
     public Long getId() {
         return id;
     }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }
