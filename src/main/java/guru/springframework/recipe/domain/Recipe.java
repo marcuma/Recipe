@@ -2,6 +2,8 @@ package guru.springframework.recipe.domain;
 
 import javax.persistence.*;
 
+import java.util.Set;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -19,6 +21,9 @@ public class Recipe {
     private String directions;
     //todo add Difficulty enum
     // private Difficulty difficulty
+
+    @OneToMany( cascade = CascadeType.ALL, mappedBy = "recipe")
+    Set<Ingredient> ingredients;
 
     @Lob
     private Byte[] image;
