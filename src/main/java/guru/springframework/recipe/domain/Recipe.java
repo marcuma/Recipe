@@ -1,5 +1,7 @@
 package guru.springframework.recipe.domain;
 
+import guru.springframework.recipe.enums.Difficulty;
+
 import javax.persistence.*;
 
 import java.util.Set;
@@ -19,8 +21,9 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-    //todo add Difficulty enum
-    // private Difficulty difficulty
+
+    @Enumerated( value = EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToMany( cascade = CascadeType.ALL, mappedBy = "recipe")
     Set<Ingredient> ingredients;
@@ -118,5 +121,13 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
